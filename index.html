@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实习汇报 · 余嘉丽 · 卓越兽医师</title>
+<link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#1a6b5a;--teal-dark:#0d3d32;--teal-light:#2a9d8f;
+  --gold:#c9a227;--gold-light:#e8c547;--gold-pale:#f5e6a3;
+  --cream:#faf7f0;--cream-dark:#f0ead6;
+  --charcoal:#1a1a2e;--slate:#374151;--muted:#6b7280;
+  --rose:#e85d75;--blue:#4a90d9;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans SC',sans-serif;color:var(--slate);background:var(--cream);overflow-x:hidden;line-height:1.8}
+.serif{font-family:'Noto Serif SC',serif}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  background:linear-gradient(135deg,#0d3d32 0%,#1a6b5a 40%,#2a9d8f 100%);
+  position:relative;overflow:hidden;text-align:center;padding:2rem;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 50%,rgba(201,162,39,0.15) 0%,transparent 60%),
+             radial-gradient(ellipse at 70% 30%,rgba(42,157,143,0.3) 0%,transparent 50%);
+}
+.hero-particles{position:absolute;inset:0;pointer-events:none}
+.hero-particle{
+  position:absolute;border-radius:50%;background:rgba(255,255,255,0.08);
+  animation:float-up linear infinite;
+}
+@keyframes float-up{
+  0%{transform:translateY(100vh) scale(0);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  100%{transform:translateY(-100vh) scale(1);opacity:0}
+}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero-badge{
+  display:inline-block;padding:0.5rem 1.5rem;border:1px solid rgba(255,255,255,0.3);
+  border-radius:999px;color:rgba(255,255,255,0.85);font-size:0.85rem;letter-spacing:0.15em;
+  margin-bottom:2rem;backdrop-filter:blur(10px);background:rgba(255,255,255,0.05);
+}
+.hero h1{
+  font-family:'Noto Serif SC',serif;font-size:clamp(2.5rem,6vw,4.5rem);
+  color:#fff;font-weight:900;line-height:1.2;margin-bottom:1rem;
+  text-shadow:0 2px 40px rgba(0,0,0,0.3);
+}
+.hero h1 .gold{color:var(--gold-light)}
+.hero-sub{color:rgba(255,255,255,0.8);font-size:1.1rem;margin-bottom:3rem;letter-spacing:0.05em}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;color:rgba(255,255,255,0.7);font-size:0.9rem}
+.hero-meta span{display:flex;align-items:center;gap:0.4rem}
+.hero-scroll{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,0.5);font-size:0.8rem;display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+  animation:bounce 2s ease-in-out infinite;z-index:2;
+}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.hero-scroll svg{width:20px;height:20px}
+
+/* ===== SECTIONS ===== */
+.section{padding:5rem 1.5rem;max-width:1100px;margin:0 auto}
+.section-label{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  color:var(--teal);font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;
+  margin-bottom:0.75rem;
+}
+.section-label::before{content:'';width:2rem;height:2px;background:var(--teal)}
+.section-title{
+  font-family:'Noto Serif SC',serif;font-size:clamp(1.8rem,4vw,2.8rem);
+  color:var(--charcoal);font-weight:700;margin-bottom:1rem;line-height:1.3;
+}
+.section-desc{color:var(--muted);font-size:1.05rem;max-width:680px;margin-bottom:3rem}
+
+/* ===== OVERVIEW CARDS ===== */
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.ov-card{
+  background:#fff;border-radius:16px;padding:2rem 1.5rem;
+  border:1px solid rgba(26,107,90,0.1);
+  box-shadow:0 1px 3px rgba(0,0,0,0.04);
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;
+}
+.ov-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--teal),var(--teal-light));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.4s;
+}
+.ov-card:hover::before{transform:scaleX(1)}
+.ov-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(26,107,90,0.12)}
+.ov-icon{
+  width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));color:#fff;font-size:1.4rem;margin-bottom:1rem;
+}
+.ov-card h3{font-size:1rem;font-weight:700;color:var(--charcoal);margin-bottom:0.5rem}
+.ov-card p{font-size:0.9rem;color:var(--muted);line-height:1.6}
+
+/* ===== TIMELINE ===== */
+.timeline-section{background:var(--charcoal);padding:5rem 1.5rem;position:relative;overflow:hidden}
+.timeline-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at 20% 80%,rgba(42,157,143,0.15) 0%,transparent 50%),
+             radial-gradient(ellipse at 80% 20%,rgba(201,162,39,0.1) 0%,transparent 50%);
+}
+.timeline-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.timeline-section .section-label{color:var(--gold-light)}
+.timeline-section .section-label::before{background:var(--gold-light)}
+.timeline-section .section-title{color:#fff}
+.timeline-section .section-desc{color:rgba(255,255,255,0.6)}
+.timeline{position:relative;padding:2rem 0}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,0.2),rgba(255,255,255,0.2),transparent);
+  transform:translateX(-50%);
+}
+.tl-item{
+  display:flex;align-items:flex-start;margin-bottom:3rem;position:relative;
+  opacity:0;transform:translateY(30px);transition:all 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.tl-item.visible{opacity:1;transform:translateY(0)}
+.tl-item:nth-child(odd){flex-direction:row;padding-right:calc(50% + 2rem)}
+.tl-item:nth-child(even){flex-direction:row-reverse;padding-left:calc(50% + 2rem)}
+.tl-dot{
+  position:absolute;left:50%;top:0.5rem;width:16px;height:16px;border-radius:50%;
+  background:var(--gold);border:3px solid var(--charcoal);transform:translateX(-50%);
+  box-shadow:0 0 0 4px rgba(201,162,39,0.3);z-index:2;
+}
+.tl-content{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px;padding:1.5rem 2rem;backdrop-filter:blur(10px);width:100%;
+  transition:all 0.3s;
+}
+.tl-content:hover{background:rgba(255,255,255,0.1);border-color:rgba(201,162,39,0.3)}
+.tl-month{
+  font-family:'Noto Serif SC',serif;font-size:1.3rem;color:var(--gold-light);font-weight:700;margin-bottom:0.3rem;
+}
+.tl-tag{
+  display:inline-block;padding:0.15rem 0.6rem;border-radius:4px;font-size:0.75rem;
+  background:rgba(42,157,143,0.3);color:var(--teal-light);margin-bottom:0.75rem;
+}
+.tl-content p{color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.7}
+
+/* ===== SKILLS GRID ===== */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.skill-card{
+  background:#fff;border-radius:20px;padding:2.5rem 2rem;position:relative;overflow:hidden;
+  border:1px solid rgba(0,0,0,0.06);
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.skill-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.08)}
+.skill-card .accent-bar{
+  position:absolute;top:0;left:0;right:0;height:4px;
+}
+.skill-card h3{font-family:'Noto Serif SC',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:0.75rem}
+.skill-card p{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:1rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.skill-tag{
+  padding:0.2rem 0.7rem;border-radius:6px;font-size:0.78rem;
+  background:var(--cream);color:var(--teal-dark);font-weight:500;
+}
+
+/* ===== CASE STUDY ===== */
+.case-section{background:linear-gradient(180deg,var(--cream-dark),var(--cream));padding:5rem 1.5rem}
+.case-inner{max-width:1100px;margin:0 auto}
+.case-card{
+  background:#fff;border-radius:24px;overflow:hidden;margin-bottom:3rem;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+.case-header{
+  padding:2.5rem 3rem;position:relative;
+}
+.case-header.fip{background:linear-gradient(135deg,#1a6b5a,#2a9d8f)}
+.case-header.emergency{background:linear-gradient(135deg,#c0392b,#e74c3c)}
+.case-header h3{font-family:'Noto Serif SC',serif;font-size:1.6rem;color:#fff;margin-bottom:0.5rem}
+.case-header p{color:rgba(255,255,255,0.8);font-size:0.95rem}
+.case-badge{
+  display:inline-block;padding:0.3rem 0.8rem;border-radius:6px;font-size:0.75rem;
+  background:rgba(255,255,255,0.2);color:#fff;margin-bottom:0.75rem;font-weight:600;
+}
+.case-body{padding:2.5rem 3rem}
+.case-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-bottom:2rem}
+.case-step{position:relative;padding-left:2.5rem}
+.case-step .step-num{
+  position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:#fff;
+}
+.case-step .step-num.green{background:var(--teal)}
+.case-step .step-num.red{background:var(--rose)}
+.case-step h4{font-size:0.9rem;font-weight:700;color:var(--charcoal);margin-bottom:0.3rem}
+.case-step p{font-size:0.85rem;color:var(--muted);line-height:1.6}
+.case-insight{
+  background:var(--cream);border-radius:12px;padding:1.5rem 2rem;
+  border-left:4px solid var(--gold);margin-top:1.5rem;
+}
+.case-insight p{color:var(--slate);font-size:0.95rem;line-height:1.7;font-style:italic}
+
+/* ===== STATS ===== */
+.stats-section{
+  background:linear-gradient(135deg,#0d3d32,#1a6b5a);padding:5rem 1.5rem;position:relative;overflow:hidden;
+}
+.stats-section::after{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.stats-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.stats-section .section-label{color:var(--gold-light)}
+.stats-section .section-label::before{background:var(--gold-light)}
+.stats-section .section-title{color:#fff}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem}
+.stat-card{
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px;padding:2rem 1.5rem;text-align:center;
+  backdrop-filter:blur(10px);transition:all 0.3s;
+}
+.stat-card:hover{background:rgba(255,255,255,0.14);transform:translateY(-4px)}
+.stat-num{
+  font-family:'Noto Serif SC',serif;font-size:2.8rem;font-weight:900;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold-pale));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1.1;margin-bottom:0.3rem;
+}
+.stat-unit{color:var(--gold-light);font-size:0.9rem;font-weight:600;margin-bottom:0.5rem}
+.stat-desc{color:rgba(255,255,255,0.6);font-size:0.85rem}
+
+/* ===== GROWTH (before/after) ===== */
+.growth-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.growth-col{border-radius:20px;padding:2.5rem;position:relative}
+.growth-col.before{background:#fef2f2;border:1px solid #fecaca}
+.growth-col.after{background:#ecfdf5;border:1px solid #a7f3d0}
+.growth-col h3{font-family:'Noto Serif SC',serif;font-size:1.2rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+.growth-col.before h3{color:#dc2626}
+.growth-col.after h3{color:#059669}
+.growth-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.growth-list li{padding-left:1.5rem;position:relative;font-size:0.92rem;line-height:1.6;color:var(--slate)}
+.growth-list li::before{content:'';position:absolute;left:0;top:0.5rem;width:8px;height:8px;border-radius:50%}
+.growth-col.before .growth-list li::before{background:#fca5a5}
+.growth-col.after .growth-list li::before{background:#6ee7b7}
+
+/* ===== CORE VALUES ===== */
+.values-row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:3rem}
+.value-chip{
+  padding:0.8rem 1.5rem;border-radius:999px;font-size:0.9rem;font-weight:600;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));color:#fff;
+  box-shadow:0 4px 15px rgba(26,107,90,0.3);transition:all 0.3s;
+}
+.value-chip:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(26,107,90,0.4)}
+
+/* ===== IMPROVEMENT ===== */
+.improve-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2rem}
+.improve-item{
+  background:#fff;border-radius:14px;padding:1.5rem;border:1px solid rgba(0,0,0,0.06);
+  display:flex;gap:1rem;align-items:flex-start;transition:all 0.3s;
+}
+.improve-item:hover{box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+.improve-icon{
+  width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:var(--cream-dark);color:var(--teal);font-size:1.1rem;flex-shrink:0;
+}
+.improve-item h4{font-size:0.9rem;font-weight:700;color:var(--charcoal);margin-bottom:0.2rem}
+.improve-item p{font-size:0.82rem;color:var(--muted);line-height:1.5}
+.improve-plan{font-size:0.8rem;color:var(--teal);font-weight:500;margin-top:0.3rem}
+
+/* ===== THANK YOU ===== */
+.thank-section{
+  min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#0d3d32,#1a6b5a);text-align:center;padding:4rem 2rem;position:relative;
+}
+.thank-section h2{
+  font-family:'Noto Serif SC',serif;font-size:clamp(2rem,5vw,3.5rem);color:#fff;
+  font-weight:900;margin-bottom:1.5rem;
+}
+.thank-text{color:rgba(255,255,255,0.75);font-size:1.05rem;max-width:600px;line-height:2;margin-bottom:2rem}
+.thank-sig{color:var(--gold-light);font-family:'Noto Serif SC',serif;font-size:1.1rem;font-weight:600}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(0.4,0,0.2,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up.d1{transition-delay:0.1s}.fade-up.d2{transition-delay:0.2s}.fade-up.d3{transition-delay:0.3s}
+.fade-up.d4{transition-delay:0.4s}.fade-up.d5{transition-delay:0.5s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .timeline::before{left:1rem}
+  .tl-item:nth-child(odd),.tl-item:nth-child(even){flex-direction:row;padding-right:0;padding-left:3rem}
+  .tl-dot{left:1rem}
+  .growth-grid{grid-template-columns:1fr}
+  .case-header,.case-body{padding:1.5rem}
+  .case-steps{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ===== PAWS DECORATION ===== */
+.paw{position:absolute;opacity:0.04;font-size:3rem;pointer-events:none;user-select:none}
+
+/* ===== NAV ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(13,61,50,0.85);backdrop-filter:blur(16px) saturate(180%);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  transform:translateY(-100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.nav.show{transform:translateY(0)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:56px}
+.nav-brand{font-family:'Noto Serif SC',serif;font-size:0.95rem;color:#fff;font-weight:700;white-space:nowrap}
+.nav-brand .gold{color:var(--gold-light)}
+.nav-links{display:flex;gap:0.25rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  padding:0.4rem 0.75rem;border-radius:8px;font-size:0.8rem;color:rgba(255,255,255,0.65);
+  text-decoration:none;white-space:nowrap;transition:all 0.25s;
+}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.1)}
+.nav-links a.active{color:var(--gold-light);background:rgba(201,162,39,0.15);font-weight:600}
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar{
+  position:fixed;top:0;left:0;height:3px;z-index:101;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  width:0%;transition:width 0.1s linear;
+}
+
+/* ===== BACK TO TOP ===== */
+.back-top{
+  position:fixed;bottom:2rem;right:2rem;z-index:99;
+  width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--teal),var(--teal-light));color:#fff;
+  box-shadow:0 4px 20px rgba(26,107,90,0.4);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:translateY(20px);transition:all 0.3s;pointer-events:none;
+}
+.back-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.back-top:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(26,107,90,0.5)}
+.back-top svg{width:20px;height:20px}
+
+/* ===== MOBILE NAV ===== */
+@media(max-width:768px){
+  .nav-brand{font-size:0.85rem}
+  .nav-links a{padding:0.35rem 0.6rem;font-size:0.75rem}
+  .back-top{bottom:1.2rem;right:1.2rem;width:40px;height:40px}
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAVIGATION -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">余嘉丽 · <span class="gold">卓越兽医师</span></div>
+    <div class="nav-links">
+      <a href="#overview">概况</a>
+      <a href="#timeline">成长路径</a>
+      <a href="#skills">技能实践</a>
+      <a href="#cases">典型病例</a>
+      <a href="#stats">数据总览</a>
+      <a href="#growth">收获反思</a>
+      <a href="#thanks">致谢</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="hero-badge">青海大学农牧学院 · 2026</div>
+    <h1 class="serif">动物医学<br><span class="gold">卓越兽医师</span>生产实习</h1>
+    <p class="hero-sub">福州市瑞鹏宠物医院转诊中心 · 六个月临床实践纪实</p>
+    <div class="hero-meta">
+      <span>
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-2.464-1.546-3.434-5-3.434s-4.999.97-5 3.434h10z"/></svg>
+        汇报人：余嘉丽
+      </span>
+      <span>
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.399l-.244.027.048-.434 1.93-.311.486.012z"/></svg>
+        2022级 · 卓越兽医师（2）班
+      </span>
+      <span>
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg>
+        2026.01 — 2026.07
+      </span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>向下滚动</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- ===== OVERVIEW ===== -->
+<section class="section" id="overview">
+  <div class="section-label fade-up">01 · 实习概况</div>
+  <h2 class="section-title fade-up">瑞鹏宠物医院转诊中心</h2>
+  <p class="section-desc fade-up">瑞鹏集团区域转诊中心，集医疗、教学、科研于一体，配备 MRI、CT、血液透析仪等先进设备，下设多个专科及24小时急诊 ICU。</p>
+  <div class="overview-grid">
+    <div class="ov-card fade-up d1">
+      <div class="ov-icon">🏥</div>
+      <h3>实习岗位</h3>
+      <p>见习兽医师助理，轮转门诊、住院部、手术室、化验室、药房五大科室</p>
+    </div>
+    <div class="ov-card fade-up d2">
+      <div class="ov-icon">👨‍⚕️</div>
+      <h3>带教老师</h3>
+      <p>陈丞峰医生（1–4月）<br>韩双慧医生（5–7月）<br>护士长日常临床带教</p>
+    </div>
+    <div class="ov-card fade-up d3">
+      <div class="ov-icon">📋</div>
+      <h3>培训体系</h3>
+      <p>按照《实操技能卡》逐项完成核心技能培训，六个月系统性临床实践</p>
+    </div>
+    <div class="ov-card fade-up d4">
+      <div class="ov-icon">📅</div>
+      <h3>实习时长</h3>
+      <p>2026年1月20日 — 7月20日<br>共计六个月完整周期</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section class="timeline-section" id="timeline">
+  <div class="timeline-inner">
+    <div class="section-label fade-up">02 · 成长路径</div>
+    <h2 class="section-title fade-up">六个月渐进式成长</h2>
+    <p class="section-desc fade-up">从基础护理到综合实战，一条从辅助到独立的清晰路径。</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-month serif">1-2月</div>
+          <div class="tl-tag">基础护理 · 专科检查</div>
+          <p>术前准备 · 输液配药 · 个体化饲喂<br>眼科护理 · 血压测量 · CRI镇痛<br>熟悉医院工作流程，开始接触专科诊疗技术</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-month serif">3月</div>
+          <div class="tl-tag">专科检查</div>
+          <p>眼科护理 · 血压测量 · CRI镇痛<br>深入专科诊疗技术与设备操作</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-month serif">4月</div>
+          <div class="tl-tag">化验诊断</div>
+          <p>FIP病例 · 全套化验 · 物资盘点<br>深入化验室，掌握从采样到判读的全流程</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-month serif">5月</div>
+          <div class="tl-tag">独立操作</div>
+          <p>多物种注射 · 中兽医疗法 · 母猫绝育医助<br>重要转折——首次独立担任手术医助</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-month serif">6月</div>
+          <div class="tl-tag">精益求精</div>
+          <p>采血强化 · 粪便尿液检查 · 设备熟练<br>反复打磨核心操作，提升稳定性和准确率</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-month serif">7月</div>
+          <div class="tl-tag">综合实战</div>
+          <p>麻醉管理 · 影像拍片 · 急救技能<br>综合运用所学，独立管理多项临床工作</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLINICAL SKILLS ===== -->
+<section class="section" id="skills">
+  <div class="section-label fade-up">03 · 临床技能实践</div>
+  <h2 class="section-title fade-up">三大科室深度轮转</h2>
+  <p class="section-desc fade-up">住院护理、化验操作、手术辅助——在真实临床场景中逐项攻克核心技能。</p>
+  <div class="skills-grid">
+    <div class="skill-card fade-up d1">
+      <div class="accent-bar" style="background:linear-gradient(90deg,#2a9d8f,#52d6c8)"></div>
+      <h3>🩺 住院部基础护理</h3>
+      <p>每日两次监测体温、心率、呼吸频率、黏膜颜色及CRT。执行个体化饲喂（手喂/注射器灌食）、静脉输液、外伤清创，出院时分类整理药品与用品并逐条交代。</p>
+      <div class="skill-tags">
+        <span class="skill-tag">体征监测</span>
+        <span class="skill-tag">个体化饲喂</span>
+        <span class="skill-tag">静脉输液</span>
+        <span class="skill-tag">外伤清创</span>
+        <span class="skill-tag">出院指导</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up d2">
+      <div class="accent-bar" style="background:linear-gradient(90deg,#4a90d9,#74b9ff)"></div>
+      <h3>🔬 化验室全流程操作</h3>
+      <p>累计完成30余次静脉采血，掌握头静脉、隐静脉、颈静脉三种方式，成功率90%。独立完成斯玛特生化、爱德士17项、凝血四项、血常规、纳百/迅灵等检测。粪便漂浮法检出蛔虫卵，直接涂片法检出球虫卵囊，膀胱穿刺采尿并判读尿八项。</p>
+      <div class="skill-tags">
+        <span class="skill-tag">静脉采血</span>
+        <span class="skill-tag">生化检测</span>
+        <span class="skill-tag">血常规</span>
+        <span class="skill-tag">凝血四项</span>
+        <span class="skill-tag">粪尿检查</span>
+        <span class="skill-tag">染色镜检</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up d3">
+      <div class="accent-bar" style="background:linear-gradient(90deg,#c9a227,#e8c547)"></div>
+      <h3>⚕️ 手术室辅助与麻醉</h3>
+      <p>独立完成麻醉设备全套检查——气密性（堵Y接口法）、挥发罐、碱石灰、呼吸回路、气管插管三型号备用。里程碑：首次独立担任7月龄母猫绝育医助，手术仅耗时15分钟。</p>
+      <div class="skill-tags">
+        <span class="skill-tag">麻醉管理</span>
+        <span class="skill-tag">术中监护</span>
+        <span class="skill-tag">器械传递</span>
+        <span class="skill-tag">急救药品</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up d4">
+      <div class="accent-bar" style="background:linear-gradient(90deg,#e85d75,#f093a2)"></div>
+      <h3>📸 影像学协助</h3>
+      <p>协助拍摄四肢骨及胸腹部X光片42例，掌握侧位及正位摆位标准——四肢骨内外髁重叠、胸部曝光配合呼吸时机。初步判读骨折、胸腔积液、肠梗阻等典型征象。</p>
+      <div class="skill-tags">
+        <span class="skill-tag">X光拍片</span>
+        <span class="skill-tag">摆位标准</span>
+        <span class="skill-tag">初步判读</span>
+        <span class="skill-tag">铅字标记</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up d5">
+      <div class="accent-bar" style="background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div>
+      <h3>🐾 多技能拓展</h3>
+      <p>掌握犬/猫/兔三种动物注射技巧及留置针规格（22G/25G/27G）。中兽医理疗：川芎、红花、艾叶药包配合红外热灯。学会疫苗全流程管理及"跳针拆线法"——应用于兔子"兔果"下巴清创术后。</p>
+      <div class="skill-tags">
+        <span class="skill-tag">多物种注射</span>
+        <span class="skill-tag">中兽医理疗</span>
+        <span class="skill-tag">疫苗管理</span>
+        <span class="skill-tag">跳针拆线法</span>
+      </div>
+    </div>
+    <div class="skill-card fade-up d5">
+      <div class="accent-bar" style="background:linear-gradient(90deg,#059669,#34d399)"></div>
+      <h3>💉 跟诊与物资管理</h3>
+      <p>总结跟诊"三快"原则——眼快、手快、嘴快，提前10分钟整理诊室。参与全院物资盘点，临期标记、缺货清单、电子录入，建立系统化管理意识。</p>
+      <div class="skill-tags">
+        <span class="skill-tag">三快原则</span>
+        <span class="skill-tag">物资盘点</span>
+        <span class="skill-tag">诊室准备</span>
+        <span class="skill-tag">电子录入</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CASE STUDIES ===== -->
+<section class="case-section" id="cases">
+  <div class="case-inner">
+    <div class="section-label fade-up">04 · 典型病例</div>
+    <h2 class="section-title fade-up">从书本到病床的真实战役</h2>
+    <p class="section-desc fade-up">两个改变我临床思维的深刻病例。</p>
+
+    <!-- FIP Case -->
+    <div class="case-card fade-up">
+      <div class="case-header fip">
+        <div class="case-badge">病例一 · 诊断思维</div>
+        <h3 class="serif">猫传染性腹膜炎（FIP）</h3>
+        <p>8月龄布偶猫"团团" · 来自多猫家庭 · 腹围增大、精神萎靡、食欲废绝、反复低烧</p>
+      </div>
+      <div class="case-body">
+        <div class="case-steps">
+          <div class="case-step">
+            <div class="step-num green">1</div>
+            <h4>采样</h4>
+            <p>紫头管血常规 + 绿头管生化，采集腹腔积液（淡黄色黏稠）</p>
+          </div>
+          <div class="case-step">
+            <div class="step-num green">2</div>
+            <h4>化验</h4>
+            <p>李凡他试验阳性，迅灵试剂盒检测冠状病毒抗体，送检 PCR</p>
+          </div>
+          <div class="case-step">
+            <div class="step-num green">3</div>
+            <h4>影像</h4>
+            <p>AFAST 超声保定，标记四个评估点进行动态观察</p>
+          </div>
+          <div class="case-step">
+            <div class="step-num green">4</div>
+            <h4>综合判断</h4>
+            <p>结合流行病学 + 临床表现 + 积液分析 + 影像学 + 治疗性诊断（GS-441524）</p>
+          </div>
+        </div>
+        <div class="case-insight">
+          <p>"FIP 不能靠单项检查确诊。粪口传播、幼猫易感、排毒期可达18个月至终身——必须综合多维度信息才能做出临床判断。治疗性诊断中 GS-441524 的剂量与复发风险也需持续关注。"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Emergency Case -->
+    <div class="case-card fade-up">
+      <div class="case-header emergency">
+        <div class="case-badge">病例二 · 急救实战</div>
+        <h3 class="serif">车祸猫"小橘"急诊救治</h3>
+        <p>接报 → 评估 → 处置 → 监护 · 四阶段全流程急救</p>
+      </div>
+      <div class="case-body">
+        <div class="case-steps">
+          <div class="case-step">
+            <div class="step-num red">1</div>
+            <h4>接报</h4>
+            <p>急救包准备：留置针、肾上腺素、多巴胺、氧气面罩</p>
+          </div>
+          <div class="case-step">
+            <div class="step-num red">2</div>
+            <h4>评估</h4>
+            <p>ABC 评估：气道清除血液，左肺呼吸音减弱，股动脉脉搏微弱</p>
+          </div>
+          <div class="case-step">
+            <div class="step-num red">3</div>
+            <h4>处置</h4>
+            <p>给氧 2L/min · 建立静脉通道 · 胸腔穿刺抽气 · 休克液体复苏（7%×3kg = 210ml）</p>
+          </div>
+          <div class="case-step">
+            <div class="step-num red">4</div>
+            <h4>监护</h4>
+            <p>每5分钟记录生命体征，每30–60分钟评估水合状态，多巴胺 CRI 调压，住院14天</p>
+          </div>
+        </div>
+        <div class="case-insight">
+          <p>"这个病例让我从'被动执行'转为'主动计算'——在争分夺秒中保持冷静，精准计算药量。小橘康复出院、主人送来锦旗的那一刻，是我实习中最大的职业成就感。"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats-section" id="stats">
+  <div class="stats-inner">
+    <div class="section-label fade-up">05 · 数据总览</div>
+    <h2 class="section-title fade-up">六个月，用数字说话</h2>
+    <div class="stats-grid" style="margin-top:2rem">
+      <div class="stat-card fade-up d1">
+        <div class="stat-num" data-target="30">0</div>
+        <div class="stat-unit">余次</div>
+        <div class="stat-desc">静脉采血</div>
+      </div>
+      <div class="stat-card fade-up d2">
+        <div class="stat-num" data-target="42">0</div>
+        <div class="stat-unit">例</div>
+        <div class="stat-desc">X光拍片协助</div>
+      </div>
+      <div class="stat-card fade-up d3">
+        <div class="stat-num" data-target="90">0</div>
+        <div class="stat-unit">%</div>
+        <div class="stat-desc">采血成功率</div>
+      </div>
+      <div class="stat-card fade-up d4">
+        <div class="stat-num" data-target="24">0</div>
+        <div class="stat-unit">台+</div>
+        <div class="stat-desc">参与手术</div>
+      </div>
+      <div class="stat-card fade-up d5">
+        <div class="stat-num" data-target="50">0</div>
+        <div class="stat-unit">余例</div>
+        <div class="stat-desc">住院动物护理</div>
+      </div>
+      <div class="stat-card fade-up d5">
+        <div class="stat-num" data-target="30">0</div>
+        <div class="stat-unit">余张</div>
+        <div class="stat-desc">血涂片推制</div>
+      </div>
+      <div class="stat-card fade-up d5">
+        <div class="stat-num" data-target="6">0</div>
+        <div class="stat-unit">个月</div>
+        <div class="stat-desc">实习时长</div>
+      </div>
+      <div class="stat-card fade-up d5">
+        <div class="stat-num" data-target="1">0</div>
+        <div class="stat-unit">例</div>
+        <div class="stat-desc">急诊全程参与</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GROWTH ===== -->
+<section class="section" id="growth">
+  <div class="section-label fade-up">06 · 收获与反思</div>
+  <h2 class="section-title fade-up">实习前 vs 实习后</h2>
+  <p class="section-desc fade-up">六个月临床实践带来的蜕变。</p>
+  <div class="growth-grid fade-up">
+    <div class="growth-col before">
+      <h3 class="serif">🔴 实习之初</h3>
+      <ul class="growth-list">
+        <li>理论知识为主，缺乏实操经验</li>
+        <li>面对危重病例手足无措</li>
+        <li>给猫滴眼药水时手抖药液外流</li>
+        <li>药物剂量计算需要较长时间</li>
+        <li>害怕犯错，被动等待指令</li>
+        <li>面对安乐死病例情绪难以平复</li>
+      </ul>
+    </div>
+    <div class="growth-col after">
+      <h3 class="serif">🟢 实习结束</h3>
+      <ul class="growth-list">
+        <li>独立完成多项临床操作</li>
+        <li>冷静启动急救流程，精准计算药量</li>
+        <li>稳定完成眼药分时给药</li>
+        <li>熟练配制药物</li>
+        <li>主动预判医生操作，"三快"高效配合</li>
+        <li>理解生命质量原则，提供有温度的关怀</li>
+      </ul>
+    </div>
+  </div>
+  <div class="values-row fade-up">
+    <div class="value-chip">标准化流程意识</div>
+    <div class="value-chip">个体化治疗思维</div>
+    <div class="value-chip">多学科融合视野</div>
+    <div class="value-chip">临床诊断综合能力</div>
+    <div class="value-chip">职业伦理与人文关怀</div>
+  </div>
+</section>
+
+<!-- ===== IMPROVEMENT ===== -->
+<section class="section" style="padding-top:0">
+  <h2 class="section-title fade-up">不足与改进方向</h2>
+  <p class="section-desc fade-up">清醒认识差距，制定明确的提升计划。</p>
+  <div class="improve-grid">
+    <div class="improve-item fade-up d1">
+      <div class="improve-icon">🩸</div>
+      <div>
+        <h4>血气分析判读</h4>
+        <p>酸碱失衡类型识别不够熟练</p>
+        <div class="improve-plan">→ 每周复习血气分析案例</div>
+      </div>
+    </div>
+    <div class="improve-item fade-up d2">
+      <div class="improve-icon">💓</div>
+      <div>
+        <h4>心电图识别</h4>
+        <p>异常波形辨识速度慢</p>
+        <div class="improve-plan">→ 参加院内麻醉培训</div>
+      </div>
+    </div>
+    <div class="improve-item fade-up d3">
+      <div class="improve-icon">🐰</div>
+      <div>
+        <h4>小动物注射</h4>
+        <p>兔耳缘静脉成功率待提升</p>
+        <div class="improve-plan">→ 温热敷 + 控制推注速度</div>
+      </div>
+    </div>
+    <div class="improve-item fade-up d4">
+      <div class="improve-icon">💊</div>
+      <div>
+        <h4>急救药计算</h4>
+        <p>多巴胺剂量心算速度慢</p>
+        <div class="improve-plan">→ 制作急救药物剂量速查卡</div>
+      </div>
+    </div>
+    <div class="improve-item fade-up d5">
+      <div class="improve-icon">💬</div>
+      <div>
+        <h4>宠主沟通</h4>
+        <p>解释病情不够通俗</p>
+        <div class="improve-plan">→ 多观察医生话术，预习常见 QA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THANK YOU ===== -->
+<section class="thank-section" id="thanks">
+  <div class="hero-particles" id="particles2"></div>
+  <h2 class="serif fade-up">感谢聆听</h2>
+  <div class="thank-text fade-up">
+    感谢青海大学农牧学院提供的宝贵实习机会，感谢动物医学系老师们的悉心教导。<br>
+    感谢瑞鹏宠物医院全体医护人员，特别感谢陈丞峰医生、韩双慧医生的临床带教，以及护士长的耐心指导。<br>
+    感谢每一位将毛孩子托付给我们的宠主，是你们的信任让我理解了兽医的责任与温度。
+  </div>
+  <div class="thank-sig fade-up">余嘉丽 · 2022级动物医学（卓越兽医师）（2）班</div>
+</section>
+
+<script>
+// Hero particles
+function createParticles(id,count){
+  const c=document.getElementById(id);
+  if(!c)return;
+  for(let i=0;i<count;i++){
+    const p=document.createElement('div');
+    p.className='hero-particle';
+    const s=Math.random()*6+2;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${Math.random()*15+10}s;animation-delay:${Math.random()*10}s`;
+    c.appendChild(p);
+  }
+}
+createParticles('particles',30);
+createParticles('particles2',15);
+
+// Intersection Observer for fade-in + counter
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      if(e.target.querySelector('.stat-num')){
+        const nums=e.target.querySelectorAll('.stat-num[data-target]');
+        nums.forEach(n=>{
+          const target=+n.dataset.target;
+          const duration=1500;
+          const start=performance.now();
+          function tick(now){
+            const p=Math.min((now-start)/duration,1);
+            const ease=1-Math.pow(1-p,3);
+            n.textContent=Math.round(target*ease);
+            if(p<1)requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+    }
+  });
+},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-up,.tl-item').forEach(el=>obs.observe(el));
+
+// Nav show/hide + progress bar + back-to-top + active section
+const nav=document.getElementById('nav');
+const progressBar=document.getElementById('progressBar');
+const backTop=document.getElementById('backTop');
+const navLinks=document.querySelectorAll('.nav-links a');
+const sections=document.querySelectorAll('section[id]');
+let lastScroll=0;
+
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  const docH=document.documentElement.scrollHeight-window.innerHeight;
+  // Progress bar
+  progressBar.style.width=(y/docH*100)+'%';
+  // Nav visibility
+  if(y>400){nav.classList.add('show')}else{nav.classList.remove('show')}
+  // Back to top
+  if(y>600){backTop.classList.add('show')}else{backTop.classList.remove('show')}
+  // Active section
+  let current='';
+  sections.forEach(s=>{
+    const top=s.offsetTop-120;
+    if(y>=top)current=s.id;
+  });
+  navLinks.forEach(a=>{
+    a.classList.remove('active');
+    if(a.getAttribute('href')==='#'+current)a.classList.add('active');
+  });
+  lastScroll=y;
+},{passive:true});
+
+// Smooth scroll offset for fixed nav
+navLinks.forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){
+      const top=target.offsetTop-70;
+      window.scrollTo({top,behavior:'smooth'});
+    }
+  });
+});
+</script>
+</body>
+</html>
